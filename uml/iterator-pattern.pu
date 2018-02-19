@@ -1,0 +1,25 @@
+@startuml Iterator
+
+title Iterator
+
+interface IIterator<T> {
+  bool HasNext
+  T Next()
+}
+
+interface IAggregate<T> {
+  IIterator Iterator
+}
+
+class ConcreteIterator<T>
+
+class ConcreteAggregate<T>
+
+IAggregate .left.> IIterator : Create
+
+IIterator <|-down- ConcreteIterator
+IAggregate <|-down- ConcreteAggregate
+
+ConcreteIterator o-right- ConcreteAggregate
+
+@enduml

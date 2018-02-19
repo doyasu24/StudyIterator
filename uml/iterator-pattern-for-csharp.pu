@@ -1,0 +1,16 @@
+@startuml IteratorForC#
+
+title IteratorForC#
+
+interface IEnumerator {
+  bool MoveNext()
+  object Current
+}
+
+interface IEnumerable<T> {
+  IEnumerator GetEnumerator()
+}
+
+IEnumerable .left.> IEnumerator : Create
+
+@enduml
